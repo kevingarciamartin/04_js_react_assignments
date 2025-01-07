@@ -1,7 +1,5 @@
 const buttonContainer = document.getElementById("buttonContainer");
 const buttonChildContainer = document.getElementById("buttonChildContainer");
-const button2 = document.querySelector("#button2");
-const button3 = document.querySelector("#button3");
 
 buttonContainer.addEventListener("click", (event) => {
   alert("Container clicked!");
@@ -9,25 +7,16 @@ buttonContainer.addEventListener("click", (event) => {
 
 buttonChildContainer.addEventListener("click", (event) => {
   if (event.target.id === "button4" || event.target.id === "button5") {
-    event.stopPropagation();
-    alert(`This is an event delegation (${event.target.textContent})`);
-    return;
+    return myFunction(event, event.target.textContent);
   }
-
   alert("Child container clicked!");
 });
 
-button2.onclick = (event) => {
-  event.stopPropagation();
-  alert("This is a DOM level 0 event handler.");
-};
+document.querySelector("#button2").onclick = (event) => myFunction(event, event.target.textContent);
 
-button3.addEventListener("click", (event) => {
-  event.stopPropagation();
-  alert("This is a DOM level 2 event handler.");
-});
+document.querySelector("#button3").addEventListener("click", (event) => myFunction(event, event.target.textContent));
 
-function myFunction(event) {
+function myFunction(event, message) {
   event.stopPropagation();
-  alert("This is an inline event handler.");
+  alert(message);
 }
