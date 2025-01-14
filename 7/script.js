@@ -87,15 +87,13 @@ console.log("a:", a, "b:", b, "rest:", rest);
  */
 
 function isPalindrome(string) {
-  let isPalindrome = false;
+  string = string.split(" ").join("");
 
-  string = string.split(" ").join('');
-
-  for (let i = 0; i < string.length / 2; i++) {
-    
+  for (let i = 0; i < string.length / 2 - 1; i++) {
+    if (string[i] !== string[string.length - 1 - i]) return false;
   }
 
-  return string;
+  return true;
 }
 
 console.log(isPalindrome("madam"));
