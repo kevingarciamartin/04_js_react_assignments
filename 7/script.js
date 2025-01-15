@@ -7,7 +7,19 @@
  *   reverseString("world") should return "dlrow"
  *   reverseString("12345") should return "54321"
  */
-function reverseString() {}
+function reverseString(string) {
+  let reversedString = "";
+
+  for (let i = string.length - 1; i >= 0; i--) {
+    reversedString += string[i];
+  }
+
+  return reversedString;
+}
+
+console.log(reverseString("hello"));
+console.log(reverseString("world"));
+console.log(reverseString("12345"));
 
 /**
  * TODO write a JavaScript function that takes a number and returns it in the reverse order.
@@ -18,7 +30,20 @@ function reverseString() {}
  *   reverseNumber(101010) should return 10101
  */
 
-function reverseNumber() {}
+function reverseNumber(number) {
+  const numberString = number.toString();
+  let reversedNumberString = "";
+
+  for (let i = numberString.length - 1; i >= 0; i--) {
+    reversedNumberString += numberString[i];
+  }
+
+  return Number(reversedNumberString);
+}
+
+console.log(reverseNumber(12345));
+console.log(reverseNumber(98765));
+console.log(reverseNumber(101010));
 
 /**
  * TODO destruct the following object to get name and age.
@@ -32,11 +57,22 @@ const person = {
   },
 };
 
+const {
+  name,
+  info: { age },
+} = person;
+
+console.log("name:", name, "age:", age);
+
 /**
  * TODO destruct the following array the first and second element, and the remaining elements in a third variable.
  */
 
 const thisArray = ["apple", "banana", "cherry", "dates", "elderberry", "fig"];
+
+const [a, b, ...rest] = thisArray;
+
+console.log("a:", a, "b:", b, "rest:", rest);
 
 /**
  * !!!!OPTIONAL!!!!
@@ -50,4 +86,18 @@ const thisArray = ["apple", "banana", "cherry", "dates", "elderberry", "fig"];
  *    isPalindrome("coding") should return false
  */
 
-function isPalindrome() {}
+function isPalindrome(string) {
+  string = string.split(" ").join("");
+
+  for (let i = 0; i < string.length / 2 - 1; i++) {
+    if (string[i] !== string[string.length - 1 - i]) return false;
+  }
+
+  return true;
+}
+
+console.log(isPalindrome("madam"));
+console.log(isPalindrome("hello"));
+console.log(isPalindrome("12321"));
+console.log(isPalindrome("race car"));
+console.log(isPalindrome("coding"));
