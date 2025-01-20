@@ -25,7 +25,7 @@ export default function EffectsComponent() {
     <>
       <h1>Game of Throne Characters</h1>
       <ul>
-        {data?.map((object) => (
+        {data.map((object) => (
           <li key={object.id}>{object.fullName}</li>
         ))}
       </ul>
